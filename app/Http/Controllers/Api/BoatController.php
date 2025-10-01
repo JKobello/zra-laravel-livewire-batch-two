@@ -1,31 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Boat;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
-
-use Illuminate\Support\Facades\DB;
 
 class BoatController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        return view('boats.index', [
-            'boats' => Boat::all()
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return  Boat::all();
     }
 
     /**
@@ -45,14 +33,6 @@ class BoatController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Boat $boat)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Boat $boat)
@@ -65,9 +45,6 @@ class BoatController extends Controller
      */
     public function destroy(Boat $boat)
     {
-        $boat->delete();
-
-        return redirect()->route('products.index')
-            ->with('success', 'Boat deleted successfully.');
+        //
     }
 }
