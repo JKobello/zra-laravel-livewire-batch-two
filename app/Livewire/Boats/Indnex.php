@@ -8,22 +8,17 @@ use Livewire\Attributes\Title;
 
 class Indnex extends Component
 {
-    public function show(Boat $boat)
-    {
-        return $this->redirect(route('wire.boats.show', $boat));
-    }
-    public function destroy(Boat $boat)
-    {
-        $boat->delete();
-        // return $this->redirect()->route('livewire.boats.indnex')
-        //     ->with('success', 'Boat deleted successfully.');
-    }
+    public $boats;
 
+    public function mount()
+    {
+        $this->boats = Boat::all();
+    }
     #[Title('Boats List')]
     public function render()
     {
         return view('livewire.boats.indnex', [
-        'boats' => Boat::all(),
-    ]);
+            'boats' => $this->boats,
+        ]);
     }
 }

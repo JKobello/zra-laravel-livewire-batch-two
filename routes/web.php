@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/boats', Indnex::class)->name('wire.boats.index');
         Route::get('/boats/{boat}/show', Show::class)->name('wire.boats.show');
+        Route::get('/boats/{boat}/{pasenger}/{seat}/show', Show::class)->name('wire.boats.show');
 });
 
 require __DIR__.'/auth.php';
